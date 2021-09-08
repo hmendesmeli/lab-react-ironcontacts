@@ -11,7 +11,6 @@
 }
 
 .create-contact-container input, button {
-  margin-top: 15px;
   width: 400px;
   padding: 10px 5px;
   border-radius: 10px;
@@ -21,4 +20,8 @@
 .create-contact-container button:hover {
   background-color: blue;
   color: #fff;
+}
+
+.create-contact-container div {
+  margin-top: 12px;
 }
