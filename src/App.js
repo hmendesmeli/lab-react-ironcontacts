@@ -1,30 +1,17 @@
 import React, { useState } from 'react';
+
 import './App.css';
 
+import FormCreateContact from './components/FormCreateContact/FormCreateContact';
 import ContactsTable from './components/ContactsTable/ContactsTable';
 
 import contacts from './contacts.json';
 
 const App = () => {
   const [contactsList, setContactsList] = useState(contacts.slice(0, 5));
-  const [name, setName] = useState('');
-  const [pictureUrl, setPictureUrl] = useState('');
-  const [popularity, setPopularity] = useState('');
 
-  const handleCreateContact = (event) => {
-    event.preventDefault();
-
-    const newContact = {
-      id: new Date().getTime(),
-      name: name,
-      pictureUrl: pictureUrl,
-      popularity: popularity,
-    };
-
+  const handleCreateContact = (newContact) => {
     setContactsList([...contactsList, newContact]);
-    setName('');
-    setPictureUrl('');
-    setPopularity('');
   }
 
   return (
@@ -32,39 +19,7 @@ const App = () => {
 
       <h1>IronContacts</h1>
 
-      <form onSubmit={handleCreateContact} className="create-contact-container">
-          <div>
-            <input
-              type="text"
-              name="name"
-              placeholder="Contact Name"
-              value={name}
-              onChange={(event) => setName(event.target.value)} // atualizando o estado do name com o valor do input
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              name="pictureUrl"
-              placeholder="Picture URL"
-              value={pictureUrl}
-              onChange={(event) => setPictureUrl(event.target.value)}
-            />
-          </div>
-          <div>
-            <input
-              type="number"
-              step="0.01"
-              name="popularity"
-              placeholder="Popularity"
-              value={popularity}
-              onChange={(event) => setPopularity(event.target.value)}
-            />
-          </div>
-          <div>
-            <button type="submit">Create new Contact</button>
-          </div>
-        </form>
+      <FormCreateContact createContact={handleCreateContact} />
 
       <ContactsTable contacts={contactsList} />
 

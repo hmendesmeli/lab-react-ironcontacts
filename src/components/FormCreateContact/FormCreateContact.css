@@ -1,0 +1,40 @@
+.create-contact-container input, button {
+  width: 400px;
+  padding: 10px 5px;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+
+.create-contact-container button:hover {
+  background-color: blue;
+  color: #fff;
+}
+
+/* This selector is already in our code. We are just adding position and height properties */
+.create-contact-container div {
+  margin-top: 12px;
+  position: relative;
+  height: 58px;
+}
+
+.error-border {
+  border: 1px solid red !important;
+}
+
+.success-border {
+  border: 1px solid green !important;
+}
+
+.message {
+  position: absolute;
+  top: 36px;
+  left: 5px;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
